@@ -65,7 +65,7 @@ class SignStatus extends PluginBase implements Listener
         } else {
             $time = $time * 20;
         }
-        $this->getServer()->getScheduler()->scheduleRepeatingTask(new Task($this), $time);
+        $this->getScheduler()->scheduleRepeatingTask(new Task($this), $time);
         $this->getLogger()->notice(F::GREEN . "SignStatus loaded");
 
     }
