@@ -66,14 +66,7 @@ class SignStatus extends PluginBase implements Listener
             $time = $time * 20;
         }
         $this->getScheduler()->scheduleRepeatingTask(new Task($this), $time);
-        $this->getLogger()->notice(F::GREEN . "SignStatus loaded");
-
     }
-
-    public function onDisable(){
-        $this->getLogger()->notice(F::RED . "SignStatus disabled");
-    }
-
 
     /**
      * @param SignChangeEvent $event
@@ -98,7 +91,7 @@ class SignStatus extends PluginBase implements Listener
                     $v = str_replace("{SERVER_LOAD}", $load, $v);
                     $event->setLine($x, $v);
                 }
-                //$event->setText(F::GREEN."[STATUS]",F::YELLOW."TPS: [$tps]",F::AQUA."ONLINE: ".F::GREEN.$p.F::WHITE."/".F::RED.$full.",".F::GOLD."******");
+
                 $event->getPlayer()->sendMessage($this->prefix . $this->translation->get("sign_created"));
             } else {
                 $player->sendMessage($this->prefix . $this->translation->get("sign_no_perms"));

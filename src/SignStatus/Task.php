@@ -7,11 +7,9 @@ use pocketmine\tile\Sign;
 
 class Task extends BaseTask {
     private $plugin;
-    private $countable;
 
     public function __construct(SignStatus $plugin){
         $this->plugin = $plugin;
-        $this->countable = 0;
     }
 
     public function onRun($currentTick){
@@ -23,7 +21,6 @@ class Task extends BaseTask {
                         $tps = $this->plugin->getServer()->getTicksPerSecond();
                         $p = count($this->plugin->getServer()->getOnlinePlayers());
                         $full = $this->plugin->getServer()->getMaxPlayers();
-                        $count = $this->countable++; //For debug
                         $load = $this->plugin->getServer()->getTickUsage();
                         $level = $tile->getLevel()->getName();
                         $index = [];
